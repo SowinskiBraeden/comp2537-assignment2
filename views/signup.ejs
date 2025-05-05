@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>2537 Assignment 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">  
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="/static/css/login.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+  </head>
+ 
+  <body>
+    <div class="background"></div>
+
+    <div class="center">
+      <form action="/signup" method="POST">
+        <label for="name">
+          <i class="fas fa-user"></i>
+        </label>
+        <input type="text" name="name" placeholder="Peter Venkman" id="name" required>
+
+        <label for="email">
+          <i class="fas fa-envelope"></i>
+        </label>
+        <input type="email" name="email" placeholder="peter_v@ghostbusters.com" id="email" required>
+
+        <label for="password">
+          <i class="fas fa-lock"></i>
+        </label>
+        <input type="password" name="password" placeholder="Password" id="password" required>
+
+        <input id="login" type="submit" value="Sign Up">
+        <h3 id="flash-msg" class="flash-msg"><%= message %></h3>
+      </form>
+    </div>
+
+    <script src="/static/scripts/loadFlash.js"></script>
+  </body>
+</html>

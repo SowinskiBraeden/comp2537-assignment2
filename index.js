@@ -130,9 +130,12 @@ app.post("/signup", async (req, res) => {
     password: password,
   });
 
-  req.session.message = "Please login";
+  req.session.authenticated = true;
+  req.session.username = req.body.name;
+  req.session.message = "";
+
   res.status(200);
-  return res.redirect("/login");
+  return res.redirect('/members');
 });
 
 app.get("/logout", (req, res) => {

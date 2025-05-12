@@ -1,31 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>2537 Assignment 1</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">  
-    <meta charset="utf-8">
+<%- include("./partials/header") %>
 
-    <link rel="stylesheet" href="/static/css/index.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
-  </head>
-  <body>
-    <div class="center">
-      <form action="/login" method="POST">
+<div class="flex h-screen">
+  <div class="m-auto w-sm px-6 py-12 bg-white-200 rounded-lg space-y-6">
+    <div class="flex flex-row justify-center">
+      <h1 class="font-semibold text-xl mb-4 text-white">Login</h1>
+    </div>
+    <form action="/login" method="POST">
+      <div class="flex flex-col justify-center">
         <label for="username">
           <i class="fas fa-envelope"></i>
         </label>
-        <input type="email" name="email" placeholder="Email" id="email" required>
-
+        <input type="email" name="email" placeholder="Email" id="email" required class="block w-full rounded-md bg-grey-100 px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6 mb-4 text-white">
+  
         <label for="password">
           <i class="fas fa-lock"></i>
         </label>
-        <input type="password" name="password" placeholder="Password" id="password" required>
+        <input type="password" name="password" placeholder="Password" id="password" required class="block w-full rounded-md bg-grey-100 px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6 mb-4 text-white">
+      </div>
+  
+      <div class="flex flex-row justify-center">
+        <button type="submit" class="block w-3xs bg-blue-600 rounded-md mx-8 text-white p-2">Login</button>
+        <h3 class="text-red-500 text-center"><%= message %></h3>
+      </div>
+    </form>
+  </div>
+</div>
 
-        <input id="login" type="submit" value="Login">
-        <h3 id="flash-msg" class="flash-msg"><%= message %></h3>
-      </form>
-    </div>
-
-    <script src="/static/scripts/loadFlash.js"></script>
-  </body>
-</html>
+<%- include("./partials/footer") %>

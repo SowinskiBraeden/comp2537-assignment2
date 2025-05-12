@@ -1,15 +1,33 @@
 <%- include("./partials/header") %>
 
-<div class="center">
-  <% if (authenticated) { %>
-    <h1>Welcome <%= username %></h1>
-    <a href="/members">Go to members page</a>
-    <a style="background-color: grey; margin-top: 12pt;" href="/logout">Logout</a>
-  <% } else { %>
-    <a href="/login">Login</a>
-    <p>or</p>
-    <a href="/signup">Signup</a>
-  <% } %>
-</div>
+<% if (authenticated) { %>
+  <div class="m-12 flex flex-row justify-center">
+    <div class="flex flex-col justify-between">
+
+      <div class="flex flex-row justify-between mb-6">
+        <h1 class="text-white font-bold text-xl mt-1">Welcome <%= user.name %></h1>
+        <a class="w-20 py-2 pb-2.5 bg-yellow-400 rounded-md font-semibold text-center" href="/logout">Logout</a>
+      </div>
+
+      <div>
+        <a class="text-center block w-3xs bg-blue-600 rounded-md mx-8 text-white p-2 mb-4" href="/members">Go to members page</a>
+        <% if (user.type == "admin") { %>
+          <a class="text-center block w-3xs bg-blue-600 rounded-md mx-8 text-white p-2 mb-4" href="/admin">Go to admin page</a>
+        <% } %>
+      </div>
+    </div>
+  </div>
+<% } else { %>
+   <div class="m-12 flex flex-row justify-center">
+    <div class="flex flex-col justify-between">
+
+      <a class="text-center block w-3xs bg-blue-600 rounded-md mx-8 text-white p-2 mb-4" href="/login">Login</a>
+      <p class="text-white text-center mb-4">or</p>
+      <a class="text-center block w-3xs bg-blue-600 rounded-md mx-8 text-white p-2 mb-4" href="/signup">Signup</a>
+      
+    </div>
+  </div>
+
+<% } %>
 
 <%- include("./partials/footer") %>

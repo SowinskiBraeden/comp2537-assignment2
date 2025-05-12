@@ -1,0 +1,31 @@
+<div class="mb-4 bg-gray-200 p-4 flex flex-row justify-between rounded-md">
+  <div class="mr-6 mt-1"><p><%= u.type %></p></div>
+  <div class="mr-6 mt-1"><p><%= u.name %></p></div>
+  <div class="mr-6 mt-1"><p><%= u.email %></p></div>
+<div>
+    <% if (u._id == user._id) { %>
+      <form method="POST" action="/demote">
+        <input hidden disabed name="userId" id="userId" value="<%= u._id %>">
+        <button disabled type="submit" class="w-3xs bg-green-600 rounded-md py-1 text-center text-white font-semibold cursor-not-allowed">
+          Cannot Demote Self
+        </button>
+      </form>
+    <% } else { %>
+      <% if (u.type == "admin") { %>
+        <form method="POST" action="/demote">
+          <input hidden disabed name="userId" id="userId" value="<%= u._id %>">
+          <button type="submit" class="w-3xs bg-green-600 rounded-md py-1 text-center text-white font-semibold cursor-pointer">
+            Demote to User
+          </button>
+        </form>
+      <% } else { %>
+        <form method="POST" action="/promote">
+          <input hidden disabed name="userId" id="userId" value="<%= u._id %>">
+          <button type="submit" class="w-3xs bg-red-400 rounded-md py-1 text-center text-white font-semibold cursor-pointer">
+            Promote to Admin
+          </button>
+        </form>
+      <% } %>
+    <% } %>
+  </div>
+</div>
